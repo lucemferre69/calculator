@@ -21,6 +21,9 @@ body {
     width: 520px;
     height: 100px;
     margin-top: 50px;
+    text-align: end;
+    font-size: 50px;
+    padding: 25px 10px 0 0;
 }
 #buttons {
     background-color: rgb(35, 51, 51);
@@ -57,7 +60,7 @@ button {
     justify-content: space-evenly;
     height: 98px;
 }
-#layout1 button, #divide {
+.operator {
     background-color: rgb(134, 153, 172);
 }
 #equal {
