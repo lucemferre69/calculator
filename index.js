@@ -40,6 +40,8 @@ const display = document.querySelector("#display")
 const btnOperator = document.querySelectorAll(".operator")
 const btnNumber = document.querySelectorAll(".number")
 const btnEqual = document.querySelector("#equal")
+const btnC = document.querySelector("#C")
+const btnDelete = document.querySelector("#delete")
 
 btnNumber.forEach(button => {
     button.addEventListener("click", ()=>{
@@ -55,7 +57,6 @@ btnNumber.forEach(button => {
 });
 btnOperator.forEach(button =>{
     button.addEventListener("click", ()=>{
-        console.log(operation)
         if(operation.num2 !== ""){
             operation.operate()
         }
@@ -67,5 +68,35 @@ btnOperator.forEach(button =>{
     })
 })
 btnEqual.addEventListener("click", ()=>{
-    operation.operate()
+    if(operation.num2 !== ""){
+        operation.operate()
+    }
+})
+btnC.addEventListener("click",()=>{
+    operation.num1 = ""
+    operation.num2 = ""
+    operation.operator = ""
+    result = 0
+    display.textContent = `${result}`
+})
+btnDelete.addEventListener("click", ()=>{
+    if (operation.num2 !== ""){
+            operation.num2 = operation.num2.slice(0, operation.num2.length - 1)
+            if (operation.num2 !== ""){
+                display.textContent = `${operation.num1} ${operation.operator} ${operation.num2}`
+            } else {
+                display.textContent = `${operation.num1} ${operation.operator}`
+            }
+    } else if (operation.operator !== "") {
+        operation.operator = ""
+        display.textContent = `${operation.num1}`
+    } else if (operation.num1 !== ""){
+            operation.num1 = operation.num1.slice(0, operation.num1.length - 1)
+            if (operation.num1 !== ""){
+                display.textContent = `${operation.num1}`
+            } else {
+                result = 0
+                display.textContent = `${result}`
+            }
+    }
 })
