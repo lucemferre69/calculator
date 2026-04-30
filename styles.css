@@ -1,0 +1,78 @@
+body {
+    background-color: silver;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#calculator {
+    width: 600px;
+    height: 740px;
+    background-color: darkslategray;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#display {
+    background-color: slategray;
+    border-radius: 10px;
+    width: 520px;
+    height: 100px;
+    margin-top: 50px;
+}
+#buttons {
+    background-color: rgb(35, 51, 51);
+    border-radius: 10px;
+    width: 520px;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 0px 15px 0px;
+}
+button {
+    width: 120px;
+    height: 98px;
+    border-radius: 15px;
+    font-size: 30px;
+    background-color: rgb(114, 107, 156);
+}
+#layout1 {
+    display: flex;
+    flex-direction: column;
+    margin-left: 8px;
+    justify-content: space-between;
+}
+#layout2 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 392px;
+    justify-content: space-evenly;
+}
+#layout3 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 520px;
+    justify-content: space-evenly;
+    height: 98px;
+}
+#layout1 button, #divide {
+    background-color: rgb(134, 153, 172);
+}
+#equal {
+    width: 248px;
+    background-color: slategray;
+}
+#plus {
+    height: 196px;
+}
+#C {
+    background-color: brown;
+}
+#delete {
+    background-color: rgb(202, 71, 71);
+}
+#dot {
+    background-color: rgb(175, 201, 228);
+}
