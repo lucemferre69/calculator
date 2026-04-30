@@ -17,11 +17,22 @@ const operation = {
             result = this.num1 * this.num2
             break
         case "/":
-            if (this.num2 == 0){break} else{
+            if (this.num2 == 0){
+                display.textContent=`ERROR`
+                this.num1 = ""
+                this.num2 = ""
+                this.operator = ""
+                result = 0
+                return result
+                break
+            } else{
                 result = this.num1 / this.num2
             }
         }
         this.num2 = ""
+        this.operator = ""
+        display.textContent = `${result}`
+        this.num1 = result
         return result
     }
 }
@@ -47,16 +58,14 @@ btnOperator.forEach(button =>{
         console.log(operation)
         if(operation.num2 !== ""){
             operation.operate()
-            operation.num1 = result
         }
-        const operator = button.textContent
-        operation.operator = operator
-        display.textContent = `${operation.num1} ${operation.operator}`
-        
+        if(operation.num1 !== ""){
+            const operator = button.textContent
+            operation.operator = operator
+            display.textContent = `${operation.num1} ${operation.operator}`
+        }
     })
 })
 btnEqual.addEventListener("click", ()=>{
     operation.operate()
-    display.textContent = `${result}`
-    operation.num1 = result
 })
