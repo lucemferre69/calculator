@@ -4,8 +4,8 @@ const operation = {
     operator: "",
     num2: "",
     operate: function(){
-       this.num1 = parseInt(this.num1)
-       this.num2 = parseInt(this.num2)
+       this.num1 = parseFloat(this.num1)
+       this.num2 = parseFloat(this.num2)
         switch (this.operator){
         case "+":
             result = this.num1 + this.num2
@@ -32,7 +32,7 @@ const operation = {
         this.num2 = ""
         this.operator = ""
         display.textContent = `${result}`
-        this.num1 = result
+        this.num1 = String(result)
         return result
     }
 }
@@ -42,6 +42,7 @@ const btnNumber = document.querySelectorAll(".number")
 const btnEqual = document.querySelector("#equal")
 const btnC = document.querySelector("#C")
 const btnDelete = document.querySelector("#delete")
+const btnDot = document.querySelector("#dot")
 
 btnNumber.forEach(button => {
     button.addEventListener("click", ()=>{
@@ -98,5 +99,19 @@ btnDelete.addEventListener("click", ()=>{
                 result = 0
                 display.textContent = `${result}`
             }
+    }
+})
+btnDot.addEventListener("click", ()=>{
+    if (operation.operator !== ""){
+        if (operation.num2.includes(".") === false){
+            if (operation.num2 !== ""){operation.num2 += "."} else {operation.num2 = "0."}
+        }
+        display.textContent = `${operation.num1} ${operation.operator} ${operation.num2}`
+    } else {
+        display.textContent = `${operation.num1}`
+        if (operation.num1.includes(".") === false){
+            if (operation.num1 !== ""){operation.num1 += "."} else {operation.num1 = "0."}
+        }
+        display.textContent = `${operation.num1}`
     }
 })
